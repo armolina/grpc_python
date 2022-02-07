@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message ManagerRequest {
+    string playerID = 1;
+    string yearID = 2;
+    string teamID = 3;
+    string lgID = 4;
+    string inseason = 5;
+    string G = 6;
+    string W = 7;
+    string L = 8;
+    string rank = 9;
+    string plyrMgr = 10;
+}
