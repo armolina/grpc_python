@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0emanagers.proto\"\x0f\n\rEmptyMesssage\"%\n\x13ManagerPingResponse\x12\x0e\n\x06Result\x18\x01 \x01(\t\"#\n\x0eManagerRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\xa8\x01\n\x0fManagerResponse\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x0f\n\x07year_id\x18\x02 \x01(\t\x12\x0f\n\x07team_id\x18\x03 \x01(\t\x12\r\n\x05lg_id\x18\x04 \x01(\t\x12\x10\n\x08inseason\x18\x05 \x01(\t\x12\t\n\x01G\x18\x06 \x01(\t\x12\t\n\x01W\x18\x07 \x01(\t\x12\t\n\x01L\x18\x08 \x01(\t\x12\x0c\n\x04rank\x18\t \x01(\t\x12\x10\n\x08plyr_mgr\x18\n \x01(\t2q\n\x07Manager\x12\x34\n\x0cPingManagers\x12\x0e.EmptyMesssage\x1a\x14.ManagerPingResponse\x12\x30\n\x0bGetManagers\x12\x0f.ManagerRequest\x1a\x10.ManagerResponseb\x06proto3'
+  serialized_pb=b'\n\x0emanagers.proto\"\x0f\n\rEmptyMesssage\"%\n\x13ManagerPingResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"#\n\x0eManagerRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\xa8\x01\n\x0fManagerResponse\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x0f\n\x07year_id\x18\x02 \x01(\t\x12\x0f\n\x07team_id\x18\x03 \x01(\t\x12\r\n\x05lg_id\x18\x04 \x01(\t\x12\x10\n\x08inseason\x18\x05 \x01(\t\x12\t\n\x01G\x18\x06 \x01(\t\x12\t\n\x01W\x18\x07 \x01(\t\x12\t\n\x01L\x18\x08 \x01(\t\x12\x0c\n\x04rank\x18\t \x01(\t\x12\x10\n\x08plyr_mgr\x18\n \x01(\t2q\n\x07Manager\x12\x34\n\x0cPingManagers\x12\x0e.EmptyMesssage\x1a\x14.ManagerPingResponse\x12\x30\n\x0bGetManagers\x12\x0f.ManagerRequest\x1a\x10.ManagerResponseb\x06proto3'
 )
 
 
@@ -59,7 +59,7 @@ _MANAGERPINGRESPONSE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Result', full_name='ManagerPingResponse.Result', index=0,
+      name='result', full_name='ManagerPingResponse.result', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,

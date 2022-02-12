@@ -8,7 +8,7 @@ from concurrent import futures
 
 class Manager(managers_pb2_grpc.ManagerServicer):
     def PingManagers(self, request, context):
-        return managers_pb2.managers_pb2.ManagerPingResponse("True")
+        return managers_pb2.ManagerPingResponse(result="1")
     
 
 def main():

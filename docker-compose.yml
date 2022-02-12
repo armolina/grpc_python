@@ -1,12 +1,14 @@
-version: '3.8'
+version: '3.3'
 services:    
     srv_persistor:
         build: 
             context: .
-            dockerfile: ./srv_persistor/Dockerfile
+            dockerfile: ./srv_persistor/dockerfile
         ports:
             - "50051:50051"
     srv_reader:
         build: 
             context: .
-            dockerfile: ./srv_reader/Dockerfile
+            dockerfile: ./srv_reader/dockerfile
+        depends_on: 
+            - srv_persistor
