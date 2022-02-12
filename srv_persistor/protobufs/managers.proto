@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+message EmptyMesssage {}
+
+message ManagerPingResponse {
+    string Result = 1;
+}
+
+message ManagerRequest {
+    string player_id = 1;
+}
+
+message ManagerResponse {
+    string player_id = 1;
+    string year_id = 2;
+    string team_id = 3;
+    string lg_id = 4;
+    string inseason = 5;
+    string G = 6;
+    string W = 7;
+    string L = 8;
+    string rank = 9;
+    string plyr_mgr = 10;
+}
+
+service Manager {
+    rpc PingManagers(EmptyMesssage) returns (ManagerPingResponse);
+    rpc GetManagers(ManagerRequest) returns (ManagerResponse);
+}
