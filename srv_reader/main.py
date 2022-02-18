@@ -10,6 +10,7 @@ def main():
     dataReader = csv.reader(f, delimiter=',')
 
     with grpc.insecure_channel('srv_persistor:50051') as channel:
+        print("srv_status: " + grpc.RpcError)
         stub = managers_pb2_grpc.ManagerStub(channel)
         response = stub.PingManagers(managers_pb2.EmptyMesssage())
     print("Mensaje recibido: " + response.result)
