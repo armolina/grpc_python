@@ -4,8 +4,8 @@ import grpc
 from repository.file_repository import FileRepository
 from dto.sales_record import SaleRecord
 
-import managers_pb2_grpc
-import managers_pb2
+import sales_record_pb2
+import sales_record_pb2_grpc
 
 def main():
     file_repository = FileRepository(os.environ["DIR_FILE"])
@@ -18,8 +18,8 @@ def main():
         sales_records.append(sale_record)
 
         with grpc.insecure_channel('srv_persistor:50051') as channel:
-            stub = managers_pb2_grpc.(channel)
-            response = stub.PingManagers(managers_pb2.EmptyMesssage())
+            stub = sales_record_pb2_grpc.SalesRecordStub(channel)
+            response = stub.PingSalesRecords(sales_record_pb2.EmptyMesssage())
             print("Mensaje recibido: " + response.result)
     
     channel.close()

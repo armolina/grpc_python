@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import managers_pb2 as managers__pb2
+import sales_record_pb2 as sales__record__pb2
 
 
-class ManagerStub(object):
+class SalesRecordStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,58 +14,58 @@ class ManagerStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.PingManagers = channel.unary_unary(
-                '/Manager/PingManagers',
-                request_serializer=managers__pb2.EmptyMesssage.SerializeToString,
-                response_deserializer=managers__pb2.ManagerPingResponse.FromString,
+        self.PingSalesRecords = channel.unary_unary(
+                '/SalesRecord/PingSalesRecords',
+                request_serializer=sales__record__pb2.EmptyMesssage.SerializeToString,
+                response_deserializer=sales__record__pb2.SalesRecordPingResponse.FromString,
                 )
-        self.GetManagers = channel.unary_unary(
-                '/Manager/GetManagers',
-                request_serializer=managers__pb2.ManagerRequest.SerializeToString,
-                response_deserializer=managers__pb2.ManagerResponse.FromString,
+        self.SendSalesRecords = channel.unary_unary(
+                '/SalesRecord/SendSalesRecords',
+                request_serializer=sales__record__pb2.SalesRecordRequest.SerializeToString,
+                response_deserializer=sales__record__pb2.SalesRecordResponse.FromString,
                 )
 
 
-class ManagerServicer(object):
+class SalesRecordServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def PingManagers(self, request, context):
+    def PingSalesRecords(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetManagers(self, request, context):
+    def SendSalesRecords(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ManagerServicer_to_server(servicer, server):
+def add_SalesRecordServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'PingManagers': grpc.unary_unary_rpc_method_handler(
-                    servicer.PingManagers,
-                    request_deserializer=managers__pb2.EmptyMesssage.FromString,
-                    response_serializer=managers__pb2.ManagerPingResponse.SerializeToString,
+            'PingSalesRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.PingSalesRecords,
+                    request_deserializer=sales__record__pb2.EmptyMesssage.FromString,
+                    response_serializer=sales__record__pb2.SalesRecordPingResponse.SerializeToString,
             ),
-            'GetManagers': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetManagers,
-                    request_deserializer=managers__pb2.ManagerRequest.FromString,
-                    response_serializer=managers__pb2.ManagerResponse.SerializeToString,
+            'SendSalesRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendSalesRecords,
+                    request_deserializer=sales__record__pb2.SalesRecordRequest.FromString,
+                    response_serializer=sales__record__pb2.SalesRecordResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Manager', rpc_method_handlers)
+            'SalesRecord', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class Manager(object):
+class SalesRecord(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def PingManagers(request,
+    def PingSalesRecords(request,
             target,
             options=(),
             channel_credentials=None,
@@ -75,14 +75,14 @@ class Manager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Manager/PingManagers',
-            managers__pb2.EmptyMesssage.SerializeToString,
-            managers__pb2.ManagerPingResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/SalesRecord/PingSalesRecords',
+            sales__record__pb2.EmptyMesssage.SerializeToString,
+            sales__record__pb2.SalesRecordPingResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetManagers(request,
+    def SendSalesRecords(request,
             target,
             options=(),
             channel_credentials=None,
@@ -92,8 +92,8 @@ class Manager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Manager/GetManagers',
-            managers__pb2.ManagerRequest.SerializeToString,
-            managers__pb2.ManagerResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/SalesRecord/SendSalesRecords',
+            sales__record__pb2.SalesRecordRequest.SerializeToString,
+            sales__record__pb2.SalesRecordResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

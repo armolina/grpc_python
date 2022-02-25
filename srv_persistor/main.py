@@ -1,20 +1,20 @@
 import sys
 import csv
 import grpc
-import managers_pb2
-import managers_pb2_grpc
+import sales_record_pb2
+import sales_record_pb2_grpc
 
 from concurrent import futures
 
-class Manager(managers_pb2_grpc.ManagerServicer):
-    def PingManagers(self, request, context):
-        return managers_pb2.ManagerPingResponse(result="1")
+class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
+    def PingSalesRecords(self, request, context):
+        return sales_record_pb2.SalesRecordPingResponse(result="1")
     
 
 def main():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
-    managers_pb2_grpc.add_ManagerServicer_to_server(Manager(), server)
+    sales_record_pb2_grpc.add_SalesRecordServicer_to_server(SalesRecord(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     print("server started, port: 50051")

@@ -6,6 +6,6 @@ pb2:
 	python3 -m venv make_env
 	source make_env/bin/activate
 	pip3 install -r requirements.txt
-	python3 -m grpc_tools.protoc -I protobufs --python_out=. --grpc_python_out=. protobufs/managers.proto
+	python3 -m grpc_tools.protoc -I protobufs --python_out=. --grpc_python_out=. protobufs/sales_record.proto
 
 	rm -r make_env

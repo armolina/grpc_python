@@ -11,20 +11,20 @@ message SalesRecordRequest {
 }
 
 message SalesRecordResponse {
-    string region = 1,
-    string country = 2,
-    string item_type = 3, 
-    string sales_channel = 4,
-    string order_priority = 5,
-    string order_date = 6,
-    string order_id = 7, 
-    string ship_date = 8,
-    string units_sold = 9,
-    string unit_price = 10,
-    string unit_cost = 11,
-    string total_revenue = 12,
-    string total_cost = 13,
-    string total_profit = 14
+    string region = 1;
+    string country = 2;
+    string item_type = 3; 
+    string sales_channel = 4;
+    string order_priority = 5;
+    string order_date = 6;
+    string order_id = 7; 
+    string ship_date = 8;
+    string units_sold = 9;
+    string unit_price = 10;
+    string unit_cost = 11;
+    string total_revenue = 12;
+    string total_cost = 13;
+    string total_profit = 14;
 }
 
 service SalesRecord {
