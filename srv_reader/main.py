@@ -20,7 +20,7 @@ def main():
         sales_records.append(sale_record)
 
         with grpc.insecure_channel('srv_persistor:50051') as channel:
-            stub = managers_pb2_grpc.ManagerStub(channel)
+            stub = managers_pb2_grpc.(channel)
             response = stub.PingManagers(managers_pb2.EmptyMesssage())
             print("Mensaje recibido: " + response.result)
     
