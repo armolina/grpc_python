@@ -1,5 +1,4 @@
-import sys
-import csv
+import os
 import grpc
 
 from repository.file_repository import FileRepository
@@ -9,8 +8,7 @@ import managers_pb2_grpc
 import managers_pb2
 
 def main():
-
-    file_repository = FileRepository("./srv_reader/small_sales_records.csv")
+    file_repository = FileRepository(os.environ["DIR_FILE"])
     data_readed = file_repository.read_data()
 
     sales_records = []
@@ -20,7 +18,7 @@ def main():
         sales_records.append(sale_record)
 
         with grpc.insecure_channel('srv_persistor:50051') as channel:
-            stub = managers_pb2_grpc.ManagerStub(channel)
+            stub = managers_pb2_grpc.(channel)
             response = stub.PingManagers(managers_pb2.EmptyMesssage())
             print("Mensaje recibido: " + response.result)
     

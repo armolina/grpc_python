@@ -2,13 +2,16 @@ version: '3.3'
 services:    
     srv_persistor:
         build: 
-            context: .
-            dockerfile: ./srv_persistor/dockerfile
+            context: ./
+            
+            dockerfile: ./srv_persistor/Dockerfile
         ports:
             - "50051:50051"
     srv_reader:
         build: 
-            context: .
-            dockerfile: ./srv_reader/dockerfile
+            context: ./
+            dockerfile: ./srv_reader/Dockerfile
+        environment:
+            - DIR_FILE=/tmp/data/small_sales_records.csv
         depends_on: 
             - srv_persistor
