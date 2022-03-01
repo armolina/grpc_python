@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12sales_record.proto\"\x0f\n\rEmptyMesssage\")\n\x17SalesRecordPingResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"\'\n\x12SalesRecordRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\xad\x02\n\x13SalesRecordResponse\x12\x0e\n\x06region\x18\x01 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x11\n\titem_type\x18\x03 \x01(\t\x12\x15\n\rsales_channel\x18\x04 \x01(\t\x12\x16\n\x0eorder_priority\x18\x05 \x01(\t\x12\x12\n\norder_date\x18\x06 \x01(\t\x12\x10\n\x08order_id\x18\x07 \x01(\t\x12\x11\n\tship_date\x18\x08 \x01(\t\x12\x12\n\nunits_sold\x18\t \x01(\t\x12\x12\n\nunit_price\x18\n \x01(\t\x12\x11\n\tunit_cost\x18\x0b \x01(\t\x12\x15\n\rtotal_revenue\x18\x0c \x01(\t\x12\x12\n\ntotal_cost\x18\r \x01(\t\x12\x14\n\x0ctotal_profit\x18\x0e \x01(\t2\x8a\x01\n\x0bSalesRecord\x12<\n\x10PingSalesRecords\x12\x0e.EmptyMesssage\x1a\x18.SalesRecordPingResponse\x12=\n\x10SendSalesRecords\x12\x13.SalesRecordRequest\x1a\x14.SalesRecordResponseb\x06proto3'
+  serialized_pb=b'\n\x12sales_record.proto\"\x0f\n\rEmptyMesssage\")\n\x17SalesRecordPingResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"#\n\x13SalesRecordResponse\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\xac\x02\n\x12SalesRecordRequest\x12\x0e\n\x06region\x18\x01 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x11\n\titem_type\x18\x03 \x01(\t\x12\x15\n\rsales_channel\x18\x04 \x01(\t\x12\x16\n\x0eorder_priority\x18\x05 \x01(\t\x12\x12\n\norder_date\x18\x06 \x01(\t\x12\x10\n\x08order_id\x18\x07 \x01(\t\x12\x11\n\tship_date\x18\x08 \x01(\t\x12\x12\n\nunits_sold\x18\t \x01(\t\x12\x12\n\nunit_price\x18\n \x01(\t\x12\x11\n\tunit_cost\x18\x0b \x01(\t\x12\x15\n\rtotal_revenue\x18\x0c \x01(\t\x12\x12\n\ntotal_cost\x18\r \x01(\t\x12\x14\n\x0ctotal_profit\x18\x0e \x01(\t2\x8a\x01\n\x0bSalesRecord\x12<\n\x10PingSalesRecords\x12\x0e.EmptyMesssage\x1a\x18.SalesRecordPingResponse\x12=\n\x10SendSalesRecords\x12\x13.SalesRecordRequest\x1a\x14.SalesRecordResponseb\x06proto3'
 )
 
 
@@ -82,16 +82,16 @@ _SALESRECORDPINGRESPONSE = _descriptor.Descriptor(
 )
 
 
-_SALESRECORDREQUEST = _descriptor.Descriptor(
-  name='SalesRecordRequest',
-  full_name='SalesRecordRequest',
+_SALESRECORDRESPONSE = _descriptor.Descriptor(
+  name='SalesRecordResponse',
+  full_name='SalesRecordResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='player_id', full_name='SalesRecordRequest.player_id', index=0,
+      name='data', full_name='SalesRecordResponse.data', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -110,111 +110,111 @@ _SALESRECORDREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=82,
-  serialized_end=121,
+  serialized_end=117,
 )
 
 
-_SALESRECORDRESPONSE = _descriptor.Descriptor(
-  name='SalesRecordResponse',
-  full_name='SalesRecordResponse',
+_SALESRECORDREQUEST = _descriptor.Descriptor(
+  name='SalesRecordRequest',
+  full_name='SalesRecordRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='region', full_name='SalesRecordResponse.region', index=0,
+      name='region', full_name='SalesRecordRequest.region', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='country', full_name='SalesRecordResponse.country', index=1,
+      name='country', full_name='SalesRecordRequest.country', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='item_type', full_name='SalesRecordResponse.item_type', index=2,
+      name='item_type', full_name='SalesRecordRequest.item_type', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='sales_channel', full_name='SalesRecordResponse.sales_channel', index=3,
+      name='sales_channel', full_name='SalesRecordRequest.sales_channel', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='order_priority', full_name='SalesRecordResponse.order_priority', index=4,
+      name='order_priority', full_name='SalesRecordRequest.order_priority', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='order_date', full_name='SalesRecordResponse.order_date', index=5,
+      name='order_date', full_name='SalesRecordRequest.order_date', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='order_id', full_name='SalesRecordResponse.order_id', index=6,
+      name='order_id', full_name='SalesRecordRequest.order_id', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ship_date', full_name='SalesRecordResponse.ship_date', index=7,
+      name='ship_date', full_name='SalesRecordRequest.ship_date', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='units_sold', full_name='SalesRecordResponse.units_sold', index=8,
+      name='units_sold', full_name='SalesRecordRequest.units_sold', index=8,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='unit_price', full_name='SalesRecordResponse.unit_price', index=9,
+      name='unit_price', full_name='SalesRecordRequest.unit_price', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='unit_cost', full_name='SalesRecordResponse.unit_cost', index=10,
+      name='unit_cost', full_name='SalesRecordRequest.unit_cost', index=10,
       number=11, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='total_revenue', full_name='SalesRecordResponse.total_revenue', index=11,
+      name='total_revenue', full_name='SalesRecordRequest.total_revenue', index=11,
       number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='total_cost', full_name='SalesRecordResponse.total_cost', index=12,
+      name='total_cost', full_name='SalesRecordRequest.total_cost', index=12,
       number=13, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='total_profit', full_name='SalesRecordResponse.total_profit', index=13,
+      name='total_profit', full_name='SalesRecordRequest.total_profit', index=13,
       number=14, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -232,14 +232,14 @@ _SALESRECORDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=124,
-  serialized_end=425,
+  serialized_start=120,
+  serialized_end=420,
 )
 
 DESCRIPTOR.message_types_by_name['EmptyMesssage'] = _EMPTYMESSSAGE
 DESCRIPTOR.message_types_by_name['SalesRecordPingResponse'] = _SALESRECORDPINGRESPONSE
-DESCRIPTOR.message_types_by_name['SalesRecordRequest'] = _SALESRECORDREQUEST
 DESCRIPTOR.message_types_by_name['SalesRecordResponse'] = _SALESRECORDRESPONSE
+DESCRIPTOR.message_types_by_name['SalesRecordRequest'] = _SALESRECORDREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 EmptyMesssage = _reflection.GeneratedProtocolMessageType('EmptyMesssage', (_message.Message,), {
@@ -256,19 +256,19 @@ SalesRecordPingResponse = _reflection.GeneratedProtocolMessageType('SalesRecordP
   })
 _sym_db.RegisterMessage(SalesRecordPingResponse)
 
-SalesRecordRequest = _reflection.GeneratedProtocolMessageType('SalesRecordRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SALESRECORDREQUEST,
-  '__module__' : 'sales_record_pb2'
-  # @@protoc_insertion_point(class_scope:SalesRecordRequest)
-  })
-_sym_db.RegisterMessage(SalesRecordRequest)
-
 SalesRecordResponse = _reflection.GeneratedProtocolMessageType('SalesRecordResponse', (_message.Message,), {
   'DESCRIPTOR' : _SALESRECORDRESPONSE,
   '__module__' : 'sales_record_pb2'
   # @@protoc_insertion_point(class_scope:SalesRecordResponse)
   })
 _sym_db.RegisterMessage(SalesRecordResponse)
+
+SalesRecordRequest = _reflection.GeneratedProtocolMessageType('SalesRecordRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SALESRECORDREQUEST,
+  '__module__' : 'sales_record_pb2'
+  # @@protoc_insertion_point(class_scope:SalesRecordRequest)
+  })
+_sym_db.RegisterMessage(SalesRecordRequest)
 
 
 
@@ -279,8 +279,8 @@ _SALESRECORD = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=428,
-  serialized_end=566,
+  serialized_start=423,
+  serialized_end=561,
   methods=[
   _descriptor.MethodDescriptor(
     name='PingSalesRecords',

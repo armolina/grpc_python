@@ -6,11 +6,11 @@ message SalesRecordPingResponse {
     string result = 1;
 }
 
-message SalesRecordRequest {
-    string player_id = 1;
+message SalesRecordResponse {
+    string data = 1;
 }
 
-message SalesRecordResponse {
+message SalesRecordRequest {
     string region = 1;
     string country = 2;
     string item_type = 3; 

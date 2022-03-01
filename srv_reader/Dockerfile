@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 
 COPY ./srv_reader /home/app
-COPY ./data/small_sales_records.csv /tmp/data/
+COPY ./data /tmp/data/
 
 WORKDIR /home/app
 

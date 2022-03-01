@@ -12,6 +12,6 @@ services:
             context: ./
             dockerfile: ./srv_reader/Dockerfile
         environment:
-            - DIR_FILE=/tmp/data/small_sales_records.csv
+            - DIR_FILE=/tmp/data/big_sales_records.csv
         depends_on: 
             - srv_persistor
