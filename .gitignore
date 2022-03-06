@@ -1,4 +1,4 @@
 .vscode
 */**/*__pycache__
 */**/env
-data/big_sales_records.csv
+data/**
