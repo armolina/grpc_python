@@ -10,6 +10,10 @@ message SalesRecordResponse {
     string data = 1;
 }
 
+message PayloadRequest {
+    string payload = 1;
+}
+
 message SalesRecordRequest {
     string region = 1;
     string country = 2;
@@ -30,4 +34,6 @@ message SalesRecordRequest {
 service SalesRecord {
     rpc PingSalesRecords(EmptyMesssage) returns (SalesRecordPingResponse);
     rpc SendSalesRecords(SalesRecordRequest) returns (SalesRecordResponse);
+    rpc SendSalesPayload(PayloadRequest) returns (SalesRecordResponse);
+    rpc SendSalesRecordsStream(stream SalesRecordRequest) returns (SalesRecordResponse);
 }

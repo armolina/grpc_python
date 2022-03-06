@@ -1,8 +1,10 @@
 import grpc
 import sales_record_pb2
 import sales_record_pb2_grpc
+import json
 
 from concurrent import futures
+from repository.mongodb_repository import MongodbRepository
 
 class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
     def PingSalesRecords(self, request, context):
@@ -11,8 +13,20 @@ class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
     def SendSalesRecords(self, request, context):
         return request
 
+    def SendSalesRecordsStream(self, request_iterator, context):
+        for request in request_iterator:
+            print(request.country)
+        return sales_record_pb2.SalesRecordResponse(data="1")
+
+    def SendSalesPayload(self, request, context):
+        obj = json.loads(request.payload)
+        print(type(obj))
+        mongoClient = MongodbRepository("root", "example", "mongo:27017")
+        result=mongoClient.insert_many(obj, "sales_records")
+        return result
+
 def main():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
 
     sales_record_pb2_grpc.add_SalesRecordServicer_to_server(SalesRecord(), server)
 

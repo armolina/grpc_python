@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12sales_record.proto\"\x0f\n\rEmptyMesssage\")\n\x17SalesRecordPingResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"#\n\x13SalesRecordResponse\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\xac\x02\n\x12SalesRecordRequest\x12\x0e\n\x06region\x18\x01 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x11\n\titem_type\x18\x03 \x01(\t\x12\x15\n\rsales_channel\x18\x04 \x01(\t\x12\x16\n\x0eorder_priority\x18\x05 \x01(\t\x12\x12\n\norder_date\x18\x06 \x01(\t\x12\x10\n\x08order_id\x18\x07 \x01(\t\x12\x11\n\tship_date\x18\x08 \x01(\t\x12\x12\n\nunits_sold\x18\t \x01(\t\x12\x12\n\nunit_price\x18\n \x01(\t\x12\x11\n\tunit_cost\x18\x0b \x01(\t\x12\x15\n\rtotal_revenue\x18\x0c \x01(\t\x12\x12\n\ntotal_cost\x18\r \x01(\t\x12\x14\n\x0ctotal_profit\x18\x0e \x01(\t2\x8a\x01\n\x0bSalesRecord\x12<\n\x10PingSalesRecords\x12\x0e.EmptyMesssage\x1a\x18.SalesRecordPingResponse\x12=\n\x10SendSalesRecords\x12\x13.SalesRecordRequest\x1a\x14.SalesRecordResponseb\x06proto3'
+  serialized_pb=b'\n\x12sales_record.proto\"\x0f\n\rEmptyMesssage\")\n\x17SalesRecordPingResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"#\n\x13SalesRecordResponse\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"!\n\x0ePayloadRequest\x12\x0f\n\x07payload\x18\x01 \x01(\t\"\xac\x02\n\x12SalesRecordRequest\x12\x0e\n\x06region\x18\x01 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x11\n\titem_type\x18\x03 \x01(\t\x12\x15\n\rsales_channel\x18\x04 \x01(\t\x12\x16\n\x0eorder_priority\x18\x05 \x01(\t\x12\x12\n\norder_date\x18\x06 \x01(\t\x12\x10\n\x08order_id\x18\x07 \x01(\t\x12\x11\n\tship_date\x18\x08 \x01(\t\x12\x12\n\nunits_sold\x18\t \x01(\t\x12\x12\n\nunit_price\x18\n \x01(\t\x12\x11\n\tunit_cost\x18\x0b \x01(\t\x12\x15\n\rtotal_revenue\x18\x0c \x01(\t\x12\x12\n\ntotal_cost\x18\r \x01(\t\x12\x14\n\x0ctotal_profit\x18\x0e \x01(\t2\x8c\x02\n\x0bSalesRecord\x12<\n\x10PingSalesRecords\x12\x0e.EmptyMesssage\x1a\x18.SalesRecordPingResponse\x12=\n\x10SendSalesRecords\x12\x13.SalesRecordRequest\x1a\x14.SalesRecordResponse\x12\x39\n\x10SendSalesPayload\x12\x0f.PayloadRequest\x1a\x14.SalesRecordResponse\x12\x45\n\x16SendSalesRecordsStream\x12\x13.SalesRecordRequest\x1a\x14.SalesRecordResponse(\x01\x62\x06proto3'
 )
 
 
@@ -111,6 +111,38 @@ _SALESRECORDRESPONSE = _descriptor.Descriptor(
   ],
   serialized_start=82,
   serialized_end=117,
+)
+
+
+_PAYLOADREQUEST = _descriptor.Descriptor(
+  name='PayloadRequest',
+  full_name='PayloadRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='payload', full_name='PayloadRequest.payload', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=119,
+  serialized_end=152,
 )
 
 
@@ -232,13 +264,14 @@ _SALESRECORDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=120,
-  serialized_end=420,
+  serialized_start=155,
+  serialized_end=455,
 )
 
 DESCRIPTOR.message_types_by_name['EmptyMesssage'] = _EMPTYMESSSAGE
 DESCRIPTOR.message_types_by_name['SalesRecordPingResponse'] = _SALESRECORDPINGRESPONSE
 DESCRIPTOR.message_types_by_name['SalesRecordResponse'] = _SALESRECORDRESPONSE
+DESCRIPTOR.message_types_by_name['PayloadRequest'] = _PAYLOADREQUEST
 DESCRIPTOR.message_types_by_name['SalesRecordRequest'] = _SALESRECORDREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -263,6 +296,13 @@ SalesRecordResponse = _reflection.GeneratedProtocolMessageType('SalesRecordRespo
   })
 _sym_db.RegisterMessage(SalesRecordResponse)
 
+PayloadRequest = _reflection.GeneratedProtocolMessageType('PayloadRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PAYLOADREQUEST,
+  '__module__' : 'sales_record_pb2'
+  # @@protoc_insertion_point(class_scope:PayloadRequest)
+  })
+_sym_db.RegisterMessage(PayloadRequest)
+
 SalesRecordRequest = _reflection.GeneratedProtocolMessageType('SalesRecordRequest', (_message.Message,), {
   'DESCRIPTOR' : _SALESRECORDREQUEST,
   '__module__' : 'sales_record_pb2'
@@ -279,8 +319,8 @@ _SALESRECORD = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=423,
-  serialized_end=561,
+  serialized_start=458,
+  serialized_end=726,
   methods=[
   _descriptor.MethodDescriptor(
     name='PingSalesRecords',
@@ -296,6 +336,26 @@ _SALESRECORD = _descriptor.ServiceDescriptor(
     name='SendSalesRecords',
     full_name='SalesRecord.SendSalesRecords',
     index=1,
+    containing_service=None,
+    input_type=_SALESRECORDREQUEST,
+    output_type=_SALESRECORDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SendSalesPayload',
+    full_name='SalesRecord.SendSalesPayload',
+    index=2,
+    containing_service=None,
+    input_type=_PAYLOADREQUEST,
+    output_type=_SALESRECORDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SendSalesRecordsStream',
+    full_name='SalesRecord.SendSalesRecordsStream',
+    index=3,
     containing_service=None,
     input_type=_SALESRECORDREQUEST,
     output_type=_SALESRECORDRESPONSE,
