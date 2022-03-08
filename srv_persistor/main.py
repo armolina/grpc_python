@@ -16,12 +16,13 @@ class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
             "item_type":request.item_type,
             "units_sold":request.units_sold,
             "units_price":request.unit_price,
-            "units_cost":request.unit_cost
+            "units_cost":request.unit_cost,
+            "source":request.source,
         }
 
         mongoClient = MongodbRepository("root", "example", "mongo:27017")
         result=mongoClient.insert_one(rec_item, "sales_records")
-        return sales_record_pb2.SalesRecordResponse(data=result.inserted_id)
+        return sales_record_pb2.SalesRecordResponse(data=str(result.inserted_id))
 
     def SendSalesRecordsStream(self, request_iterator, context):
         for request in request_iterator:

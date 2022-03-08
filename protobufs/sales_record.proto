@@ -20,6 +20,7 @@ message SalesRecordRequest {
     string units_sold = 3;
     string unit_price = 4;
     string unit_cost = 5;
+    string source = 6;
 }
 
 service SalesRecord {

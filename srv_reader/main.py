@@ -37,7 +37,7 @@ def payload_connection(data_readed):
     sales_records = []
     
     for row in data_readed:
-        sale_record = SaleRecord(row[0], row[1], row[2], row[3], row[4])
+        sale_record = SaleRecord(row[0], row[2], row[8], row[9], row[10])
         sales_records.append(sale_record)
     
     with grpc.insecure_channel('srv_persistor:50051') as channel:
@@ -73,12 +73,14 @@ def generate_messages(data_readed):
         yield msg
 
 def make_message(message):
+    print(os.environ["HOSTNAME"])
     return sales_record_pb2.SalesRecordRequest(
         region=message[0],
-        item_type=message[1],
-        units_sold=message[2],
-        unit_price=message[3],
-        unit_cost=message[4],
+        item_type=message[2],
+        units_sold=message[8],
+        unit_price=message[9],
+        unit_cost=message[10],
+        source=os.environ["HOSTNAME"]
     )
 
 if __name__ == "__main__":
