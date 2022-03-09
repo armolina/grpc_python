@@ -30,14 +30,15 @@ class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
         return sales_record_pb2.SalesRecordResponse(data="1")
 
     def SendSalesPayload(self, request, context):
-        obj = json.loads(request.payload)
-        print(type(obj))
-        mongoClient = MongodbRepository("root", "example", "mongo:27017")
-        result=mongoClient.insert_many(obj, "sales_records")
-        return result
+        return sales_record_pb2.SalesRecordResponse(data="1")
 
 def main():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=2), 
+        options = [
+            ('grpc.max_send_message_length', 16772984),
+            ('grpc.max_receive_message_length', 16772984)
+        ]
+    )
 
     sales_record_pb2_grpc.add_SalesRecordServicer_to_server(SalesRecord(), server)
 

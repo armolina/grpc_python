@@ -14,17 +14,16 @@ def main():
     file_repository = FileRepository(os.environ["DIR_FILE"])
     data_readed = file_repository.read_data()
     
-    #payload_connection(data_readed)
+    payload_connection(data_readed)
     
-    
+    """
     print("Service unary start!")  
     start_time = time.time()
     unary_connection(data_readed)
     end_time = time.time()
     print(start_time-end_time)
     print("Service unary finish!")
-
-    """
+    
     print("Service stream start!")  
     start_time = time.time()
     stream_connection(data_readed)
@@ -33,16 +32,10 @@ def main():
     print("Service stream finish!")
     """
 
-def payload_connection(data_readed):
-    sales_records = []
-    
-    for row in data_readed:
-        sale_record = SaleRecord(row[0], row[2], row[8], row[9], row[10])
-        sales_records.append(sale_record)
-    
+def payload_connection(data_readed):   
     with grpc.insecure_channel('srv_persistor:50051') as channel:
         stub = sales_record_pb2_grpc.SalesRecordStub(channel)
-        request = sales_record_pb2.PayloadRequest(payload=json.dumps(sales_records))
+        request = sales_record_pb2.PayloadRequest(payload=str(data_readed))
         result = stub.SendSalesPayload(request)
         print(f'result:{result.data}')
     
