@@ -30,6 +30,20 @@ class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
         return sales_record_pb2.SalesRecordResponse(data="1")
 
     def SendSalesPayload(self, request, context):
+        mongoClient = MongodbRepository("root", "example", "mongo:27017")
+        
+        for row in request:
+            rec_item = {
+                "region":request.region,
+                "item_type":request.item_type,
+                "units_sold":request.units_sold,
+                "units_price":request.unit_price,
+                "units_cost":request.unit_cost,
+                "source":request.source,
+            }
+            result=mongoClient.insert_one(rec_item, "sales_records")
+            print(result)
+
         return sales_record_pb2.SalesRecordResponse(data="1")
 
 def main():

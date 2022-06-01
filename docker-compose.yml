@@ -14,7 +14,7 @@ services:
             context: ./
             dockerfile: ./srv_reader/Dockerfile
         environment:
-            - DIR_FILE=/tmp/data/100000_sr.csv
+            - DIR_FILE=/tmp/data/1000_sr.csv
         depends_on: 
             - srv_persistor
     mongo:

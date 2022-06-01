@@ -1,10 +1,7 @@
 FROM python:3.8-slim
 
 COPY ./srv_reader /home/app
-COPY ./data/100_sr.csv /tmp/data/
 COPY ./data/1000_sr.csv /tmp/data/
-COPY ./data/10000_sr.csv /tmp/data/
-COPY ./data/100000_sr.csv /tmp/data/
 
 WORKDIR /home/app
 
