@@ -9,12 +9,31 @@ services:
             - "50051:50051"
         depends_on:
             - mongo
-    srv_reader:
+    srv_reader_0:
         build: 
             context: ./
             dockerfile: ./srv_reader/Dockerfile
         environment:
             - DIR_FILE=/tmp/data/1000_sr.csv
+            - CONNECTION_MODE=0
+        depends_on: 
+            - srv_persistor
+    srv_reader_1:
+        build: 
+            context: ./
+            dockerfile: ./srv_reader/Dockerfile
+        environment:
+            - DIR_FILE=/tmp/data/1000_sr.csv
+            - CONNECTION_MODE=1
+        depends_on: 
+            - srv_persistor
+    srv_reader_2:
+        build: 
+            context: ./
+            dockerfile: ./srv_reader/Dockerfile
+        environment:
+            - DIR_FILE=/tmp/data/1000_sr.csv
+            - CONNECTION_MODE=2
         depends_on: 
             - srv_persistor
     mongo:

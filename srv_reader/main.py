@@ -13,24 +13,25 @@ import sales_record_pb2_grpc
 def main():
     file_repository = FileRepository(os.environ["DIR_FILE"])
     data_readed = file_repository.read_data()
-    
-    #payload_connection(data_readed)
-    
-    """
-    print("Service unary start!")  
-    start_time = time.time()
-    unary_connection(data_readed)
-    end_time = time.time()
-    print(end_time-start_time)
-    print("Service unary finish!")
-    """
 
-    print("Service stream start!")  
+    conn_mode = os.environ["CONNECTION_MODE"]
     start_time = time.time()
-    stream_connection(data_readed)
+
+    if(conn_mode=="0"):
+        print("Ping start!") 
+        payload_connection(data_readed)
+        print("Ping finish!") 
+    elif(conn_mode=="1"):
+        print("Service unary start!")  
+        unary_connection(data_readed)
+        print("Service unary finish!")  
+    elif(conn_mode=="2"):
+        print("Service stream start!")  
+        stream_connection(data_readed)
+        print("Service stream finish!")
+    
     end_time = time.time()
-    print(end_time-start_time)
-    print("Service stream finish!")
+    print("elapsed time: " + str(end_time-start_time))
 
 def payload_connection(data_readed):   
     with grpc.insecure_channel('srv_persistor:50051') as channel:
