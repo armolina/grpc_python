@@ -14,23 +14,23 @@ def main():
     file_repository = FileRepository(os.environ["DIR_FILE"])
     data_readed = file_repository.read_data()
     
-    payload_connection(data_readed)
+    #payload_connection(data_readed)
     
     """
     print("Service unary start!")  
     start_time = time.time()
     unary_connection(data_readed)
     end_time = time.time()
-    print(start_time-end_time)
+    print(end_time-start_time)
     print("Service unary finish!")
-    
+    """
+
     print("Service stream start!")  
     start_time = time.time()
     stream_connection(data_readed)
     end_time = time.time()
-    print(start_time-end_time)
+    print(end_time-start_time)
     print("Service stream finish!")
-    """
 
 def payload_connection(data_readed):   
     with grpc.insecure_channel('srv_persistor:50051') as channel:
@@ -38,7 +38,6 @@ def payload_connection(data_readed):
         request = sales_record_pb2.PayloadRequest(payload=str(data_readed))
         result = stub.SendSalesPayload(request)
         print(f'result:{result.data}')
-    
 
 def unary_connection(data_readed):
     for row in data_readed:
@@ -48,7 +47,6 @@ def unary_connection(data_readed):
             result=stub.SendSalesRecords(message)
             print(f'result:{result.data}')
         channel.close()
-
 
 def stream_connection(data_readed):
     with grpc.insecure_channel('srv_persistor:50051') as channel:

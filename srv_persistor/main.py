@@ -20,19 +20,14 @@ class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
             "source":request.source,
         }
 
-        mongoClient = MongodbRepository("root", "example", "mongo:27017")
-        result=mongoClient.insert_one(rec_item, "sales_records")
+        mongo_client = MongodbRepository("root", "example", "mongo:27017")
+        result=mongo_client.insert_one(rec_item, "sales_records")
         return sales_record_pb2.SalesRecordResponse(data=str(result.inserted_id))
 
     def SendSalesRecordsStream(self, request_iterator, context):
-        for request in request_iterator:
-            print(request.country)
-        return sales_record_pb2.SalesRecordResponse(data="1")
-
-    def SendSalesPayload(self, request, context):
-        mongoClient = MongodbRepository("root", "example", "mongo:27017")
+        mongo_client = MongodbRepository("root", "example", "mongo:27017")
         
-        for row in request:
+        for request in request_iterator:
             rec_item = {
                 "region":request.region,
                 "item_type":request.item_type,
@@ -41,9 +36,14 @@ class SalesRecord(sales_record_pb2_grpc.SalesRecordServicer):
                 "units_cost":request.unit_cost,
                 "source":request.source,
             }
-            result=mongoClient.insert_one(rec_item, "sales_records")
-            print(result)
+            
+            result=mongo_client.insert_one(rec_item, "sales_records")
 
+        print(result)
+        return sales_record_pb2.SalesRecordResponse(data="1")
+
+    def SendSalesPayload(self, request, context):
+        print(request)
         return sales_record_pb2.SalesRecordResponse(data="1")
 
 def main():
